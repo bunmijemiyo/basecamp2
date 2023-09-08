@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
+    before_action :set_project, only: [:show, :edit, :update, :destroy]
 
     def show
-        @project = Project.find(params[:id])
     end
 
     def index
@@ -13,11 +13,10 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        @project = Project.find(params[:id])
     end
 
     def create
-        @project = Project.new(params.require(:project).permit(:title, :description, :image))
+        @project = Project.new(project_params)
         if @project.save
             flash[:notice] = "Article was created successfully"
             redirect_to @project
@@ -27,8 +26,7 @@ class ProjectsController < ApplicationController
     end
 
     def update
-        @project = Project.find(params[:id])
-        if @project.update(params.require(:project).permit(:title, :description, :image))
+        if @project.update(project_params)
             flash[:notice] = "Project was updated successfully"
             redirect_to @project
         else
@@ -37,10 +35,19 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
-        @project = Project.find(params[:id])
         @project.destroy
         redirect_to @project
-
     end
+
+    private
+
+    def set_project
+        @project = Project.find(params[:id])
+    end
+
+    def project_params
+        params.require(:project).permit(:title, :description, :image)
+    end
+
 
 end
