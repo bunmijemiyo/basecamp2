@@ -2,3 +2,8 @@
 
 <p>Title: <%= @project.title %> </p>
 <p>Decsription: <%= @project.description %></p>
+<% if @project.image.attached? %>
+    <p>
+  <img src="<%= url_for(@project.image) %>" alt="Project Image" width="80" height="80">
+<% end %>
+</p>

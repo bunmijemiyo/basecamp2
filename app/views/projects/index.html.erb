@@ -13,6 +13,17 @@
     <tr>
     <td><%= project.title%></td>
     <td><%= project.description%></td>
+    
+    
+
+    <% if project.image.attached? %>
+    <td>
+  <img src="<%= url_for(project.image) %>" alt="Project Image" width="80" height="80">
+<% end %>
+</td>
+
+    
+
     <td>Placeholder</td>
     </tr>
     <% end %>
