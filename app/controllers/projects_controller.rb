@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
         @project = Project.first
 
         if @project.save
-            flash[:notice] = "Article was created successfully"
+            flash[:notice] = "Project was created successfully"
             redirect_to @project
         else
             render 'new'
