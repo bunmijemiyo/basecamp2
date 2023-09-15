@@ -8,6 +8,7 @@
 <div class="card text-center shadow mb-5 bg-white rounded">
   <div class="card-header font-italic">
     by <%= @project.user.username if @project.user %>
+    <%= link_to gravatar_for(@project.user), user_path(@project) %>
   </div>
   <div class="card-body">
     
