@@ -8,4 +8,8 @@
 
 <h3 class="text-center" >Project</h3>
 
+<div class="flickr_pagination">
+    <%= will_paginate @projects, :container => false %>
+  </div>
+
 <%= render 'projects/project' %>
