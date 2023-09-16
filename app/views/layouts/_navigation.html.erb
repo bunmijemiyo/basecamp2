@@ -40,7 +40,7 @@
             <li><%= link_to 'Edit your profile', edit_user_path(current_user), class: "dropdown-item" %></li>
             
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><%= button_to 'Delete', user_path(current_user), class: "dropdown-item text-danger", method: :delete, :onclick => "return confirm('Are you sure you want to delete your account and all projects attached to it?')" %></li>
           </ul>
         </li>
 
