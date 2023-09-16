@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :set_project, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def show
     end
@@ -50,6 +52,13 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:title, :description, :image)
+    end
+
+    def require_same_user
+        if current_user != @project.user
+            flash[:alert] = "You can only edit or delete your own project"
+            redirect_to @project
+        end
     end
 
 
