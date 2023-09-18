@@ -1,0 +1,13 @@
+
+<!-- app/views/messages/_new.html.erb -->
+<%= form_for [discussion, message] do |f| %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Create Message' %>
+  </div>
+<% end %>
+

@@ -11,7 +11,7 @@
         </li>
         <li class="nav-item">
           
-          <%= link_to 'Bloggers', users_path, class: "nav-link"  %>
+          <%= link_to 'Users', users_path, class: "nav-link"  %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -22,11 +22,24 @@
             <li><%= link_to 'Create New Project', new_project_path, class: "dropdown-item" %></li>
             <% end %>
             <li><%= link_to 'View Projects', projects_path, class: "dropdown-item" %></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+ 
           </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Threads
+          </a>
+          <ul class="dropdown-menu">
+          <% if logged_in? %>
+            <li><%= link_to 'Create New Thread', new_discussion_path, class: "dropdown-item" %></li>
+            <% end %>
+            <li><%= link_to 'View All Threads', discussions_path, class: "dropdown-item" %></li>
+            
+            
+          </ul>
+        </li>
+
 
         <% if logged_in? %>
         <li class="nav-item dropdown">
@@ -44,6 +57,7 @@
           </ul>
         </li>
 
+        
         <li class="nav-item">
           <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
           </li>

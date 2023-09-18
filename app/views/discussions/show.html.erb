@@ -1,0 +1,54 @@
+<div class="container" >
+<div class="row justify-content-md-center" >
+<div class="col-8 mt-4">
+<div class="card text-center shadow mb-5 bg-white rounded">
+  
+  <div class="card-body">
+    <p class="card-text"><%= @discussion.discuss %></p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="container" >
+<% @discussion.messages.each do |message| %>
+<div class="row justify-content-md-center" >
+<div class="col-8 mt-4">
+<div class="card text-center shadow mb-5 bg-white rounded">
+  
+  <div class="card-body">
+    
+    <p class="card-text"><%= truncate(message.comment, length: 100) %></p>
+        
+        <%= link_to 'Edit', edit_discussion_message_path(@discussion, message), method: :edit, class: "btn btn-outline-info" %>
+        <div class="d-inline-block">
+        <%= button_to 'Delete', discussion_message_path(@discussion, message), method: :delete, :onclick => "return confirm('Are you sure you want to delete this post?')", class: "btn btn-outline-danger" %>
+        </div>
+            <div class="card-footer text-body-secondary">
+                <small>Created <%= time_ago_in_words(message.created_at)%> ago,
+                edited <%= time_ago_in_words(message.updated_at) %> ago</small>
+            </div>
+</div>
+</div>
+</div>
+<% end %>
+</div>
+
+
+
+<div class="container" >
+
+<div class="row justify-content-md-center" >
+<div class="col-8 mt-4">
+<div class="card text-center shadow mb-5 bg-white rounded">
+  
+  <div class="card-body">
+    
+    <p class="card-text"><h2>New Message</h2>
+<%= render partial: 'messages/new', locals: { discussion: @discussion, message: @message } %></p>
+        
+</div>
+</div>
+</div>
+</div>

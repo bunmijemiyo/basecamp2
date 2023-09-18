@@ -1,0 +1,11 @@
+<!-- app/views/messages/_form.html.erb -->
+<%= form_for [@message.discussion, @message] do |f| %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update Message' %>
+  </div>
+<% end %>

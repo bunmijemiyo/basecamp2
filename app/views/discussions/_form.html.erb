@@ -1,0 +1,24 @@
+<div class="container">
+
+<div class="row justify-content-center">
+<div class="col-10">
+<%= render 'shared/errors', obj: @discussion %>
+<%= form_with(model: @discussion, class: "shadow p-3 mb-3 bg-info rounded", locale: true) do |f| %>
+<div class="form-group row">
+
+<div class="form-group row">
+<%= f.label :discussion, class: "col-2 col-form-label text-light" %>
+<div class="col-10">
+<%= f.text_area :discuss, rows:10, class: "form-control shadow rounded", placeholder: "Write a topic/article for discussion " %>
+</div>
+</div>
+
+
+<div class="form-group row justify-content-center">
+<%= f.submit class: "col-2 btn btn-outline-light btn-lg mt-2" %>
+</div>
+
+<% end %>
+</div>
+</div>
+</div>
