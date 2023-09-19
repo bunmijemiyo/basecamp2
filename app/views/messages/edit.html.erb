@@ -1,11 +1,23 @@
-<!-- app/views/messages/_form.html.erb -->
-<%= form_for [@message.discussion, @message] do |f| %>
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-  </div>
+<div class="container">
 
-  <div class="actions">
-    <%= f.submit 'Update Message' %>
-  </div>
+<div class="row justify-content-center">
+<div class="col-10 shadow p-3 mb-3 bg-info rounded">
+
+<%= form_for [@message.discussion, @message] do |f| %>
+
+<div class="form-group row">
+<%= f.label :Message, class: "col-2 col-form-label text-light" %>
+<div class="col-10">
+<%= f.text_area :comment, rows:10, class: "form-control shadow rounded", placeholder: "Description of project" %>
+</div>
+</div>
+
+
+<div class="form-group row justify-content-center">
+<%= f.submit class: "col-2 btn btn-outline-light btn-lg mt-2" %>
+</div>
+
 <% end %>
+</div>
+</div>
+</div>
