@@ -95,6 +95,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.9)
+      rails
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -136,6 +138,8 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.4-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     popper_js (2.11.8)
     public_suffix (5.0.3)
@@ -191,6 +195,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.11.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.11.0)
+    sentry-ruby (5.11.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -199,6 +208,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.4-x64-mingw-ucrt)
+    sqlite3 (1.6.4-x86_64-linux)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -232,6 +242,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -240,12 +251,15 @@ DEPENDENCIES
   byebug
   capybara
   debug
+  dockerfile-rails (>= 1.5)
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   sassc-rails
   selenium-webdriver
+  sentry-rails (~> 5.11)
+  sentry-ruby (~> 5.11)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

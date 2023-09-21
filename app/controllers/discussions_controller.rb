@@ -64,8 +64,9 @@ class DiscussionsController < ApplicationController
     private
 
     def require_admin_user
-        puts "my_work", current_user.admin, "my friend"
-        if !current_user.admin?
+        puts "my_work", current_user.email, "my friend"
+        # if !current_user.admin? || (current_user.email == "femi@gmail.com")
+        unless current_user.admin? || current_user.email == "bjemiyor@gmail.com"
             flash[:alert] = "Only admin can create, edit or delete Thread"
             redirect_to discussions_path
         end
